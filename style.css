@@ -1,3 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: #e4bc84;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -6,4 +17,12 @@ table {
 td, th {
     border: 1px solid black;
     padding: 5px 10px;
+}
+
+.coffee {
+    padding: 1.7em;
+}
+
+#coffee-container {
+    height: 80vh;
 }
