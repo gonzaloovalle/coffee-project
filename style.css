@@ -4,9 +4,11 @@
 
 body {
     text-align: center;
-    background-color: #e4bc84;
+    background-color: #9e6f4e;
     min-height: 100vh;
     overflow: hidden;
+    font-family: Sansita Swashed, serif;
+    color: whitesmoke;
 }
 
 table {
@@ -24,5 +26,5 @@ td, th {
 }
 
 #coffee-container {
-    height: 80vh;
+    height: 60vh;
 }
