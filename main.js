@@ -1,6 +1,6 @@
 "use strict"
 
-
+// displays coffee name and roast
 function renderCoffee(coffee) {
     var html = '<div class="coffee">'
     html += '<h3 class="name">' + coffee.name + '</h3>';
@@ -10,6 +10,7 @@ function renderCoffee(coffee) {
     return html;
 }
 
+//dynamically displays array of coffees
 function renderCoffees(coffees) {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
@@ -18,20 +19,23 @@ function renderCoffees(coffees) {
     return html;
 }
 
+//generates new array of coffees based on conditions
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
+        //check if coffee in array has the same roast attribute as selected roast option and if user input is included in the name attribute
         if (coffee.roast === selectedRoast && coffee.name.toLowerCase().includes(searchValue.value.toLowerCase())) {
             filteredCoffees.push(coffee);
         } else if (selectedRoast === "all" && coffee.name.toLowerCase().includes(searchValue.value.toLowerCase())) {
-            filteredCoffees.push(coffee)
+            filteredCoffees.push(coffee);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+//creates new coffee object and pushes it into the coffees array
 function addCoffee(e) {
     e.preventDefault();
     let newCoffee = {
@@ -75,3 +79,7 @@ roastSelection.addEventListener('change', updateCoffees);
 searchValue.addEventListener('keyup', updateCoffees);
 submitButton.addEventListener('click', addCoffee);
 submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', function () {
+   window.localStorage.setItem('coffee', JSON.stringify(coffees[coffees.length -1]))
+});
+
